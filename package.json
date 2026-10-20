@@ -1,0 +1,15 @@
+{
+  "name": "ai-term-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "词间：随机认识一个 AI 概念，用 10 分钟学习、3 分钟表达。无运行依赖、无模型 API。",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.js",
+    "build": "node scripts/build.mjs",
+    "check": "node --check src/main.js && node --check src/core.js && node --check src/audio.js && npm test"
+  }
+}

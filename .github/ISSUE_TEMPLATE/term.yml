@@ -1,0 +1,16 @@
+name: 术语纠错或补充
+description: 让解释更准确、更容易理解
+body:
+  - type: input
+    id: term
+    attributes:
+      label: 术语名称
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: 建议修改与参考来源
+      description: 请优先提供官方文档，说明原解释哪里不准确。
+    validations:
+      required: true

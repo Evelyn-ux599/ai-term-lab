@@ -1,0 +1,15 @@
+name: 问题反馈
+description: 报告影响抽词或训练的问题
+body:
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤与实际结果
+      description: 请描述点击了什么、看到什么，以及预期是什么。不要附个人存储数据。
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: 设备和浏览器
+      placeholder: 例如 iPhone / Safari

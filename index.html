@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ed">
+  <meta name="description" content="抽一个 AI 术语，花 10 分钟学习，再用 3 分钟讲给别人听。100 个概念，免费、无需登录，记录保存在本地。">
+  <title>词间 — 13 分钟，把 AI 讲清楚</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./src/styles.css">
+  <script type="module" src="./src/main.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <a class="brand" href="./" aria-label="词间首页"><img src="./favicon.svg" width="35" height="35" alt=""><strong>词间</strong><span>AI TERM LAB</span></a>
+      <div class="header-actions"><span class="local-badge"><i></i> 无需登录 · 本地保存</span><button class="sound-button" id="sound" type="button" aria-label="关闭声音" aria-pressed="true"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="m11 5-6 4H2v6h3l6 4V5Z"/><path class="sound-wave" d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></svg><span id="sound-label">声音开</span></button></div>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <div><p class="eyebrow"><span class="tiny-star">✳</span> 每次一个概念，每次一点进步</p><h1 id="page-title">认识 AI，<br>从<span class="accent">讲清楚</span>一个词开始。</h1><p class="intro-copy">随机抽一个概念。用 10 分钟理解，再用 3 分钟表达。<br class="desktop-break">把“好像懂了”，变成自己的话。</p></div>
+        <div class="intro-stamp" aria-hidden="true"><span>学一点 · 说一点</span><strong>10<span>＋</span>3</strong><span>MINUTES / 每日练习</span></div>
+      </section>
+
+      <div class="workspace">
+        <section class="draw-panel" aria-labelledby="draw-title">
+          <div class="panel-top"><h2 id="draw-title"><span class="step-number">01</span> 今天，聊什么？</h2><span class="muted-small"><span id="term-total">100</span> 个概念 · 随机相遇</span></div>
+          <button class="machine" id="machine" type="button" aria-label="随机抽取一个 AI 术语">
+            <span class="machine-label">THE CONCEPT MACHINE <span>● READY</span></span>
+            <span class="reel-window"><span class="selection-band"></span><span class="reel-track" id="reel" aria-hidden="true"></span><span class="reel-shade"></span><span class="pointer pointer-left">▸</span><span class="pointer pointer-right">◂</span></span>
+            <span class="machine-bottom"><span>碰一点运气，长一点见识</span><span class="machine-bars" aria-hidden="true">▏▎▏▍▏▎▍▏▏▎</span></span>
+          </button>
+          <button id="draw" class="button button-primary draw-button" type="button"><span class="draw-icon" aria-hidden="true">↻</span><span id="draw-label">抽一个 AI 术语</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+          <p class="draw-hint" id="draw-hint">每个词机会相同 · 点击滚轮也可以抽选</p>
+
+          <article class="result" id="result" hidden aria-labelledby="result-title">
+            <div class="result-heading"><span class="category" id="category"></span><span class="term-number" id="term-number"></span></div>
+            <h3 id="result-title"></h3><p class="result-english" id="result-english"></p>
+            <div id="answer-content"><p class="definition" id="definition"></p><div class="example-block"><span class="mini-label">放进真实场景</span><p id="example"></p></div><p class="misconception"><span>别踩这个坑</span><span id="misconception"></span></p><a class="reference" id="reference" target="_blank" rel="noopener noreferrer">本类延伸阅读 ↗</a></div>
+            <div class="speaking-cover" id="speaking-cover" hidden><span aria-hidden="true">“</span><p>先合上答案，试着用自己的话讲。</p><small>定义 · 问题 · 例子 · 边界</small><button class="text-button" id="peek" type="button">看一下提示答案</button></div>
+          </article>
+          <div class="empty-result" id="empty-result"><span class="empty-star" aria-hidden="true">✳</span><p>不用一次学会所有。<br><strong>今天，把一个词讲清楚就好。</strong></p></div>
+        </section>
+
+        <aside class="practice-panel" aria-labelledby="practice-title">
+          <div class="panel-top"><h2 id="practice-title"><span class="step-number">02</span> 把理解，说出来</h2><span class="duration-tag">13 MIN</span></div>
+          <div class="phases" aria-label="训练阶段"><span class="phase active" id="phase-learn"><span>01</span> 收集与整理 <b>10′</b></span><span class="phase" id="phase-speak"><span>02</span> 开口汇报 <b>3′</b></span></div>
+          <div class="timer-area"><span class="timer-status" id="timer-status">先抽一个词，再开始练习</span><div class="timer" id="timer" role="timer" aria-label="剩余时间" aria-live="off">10<span>:</span>00</div><div class="progress-track" role="progressbar" id="progress" aria-label="本阶段进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="progress-fill"></div></div><p class="timer-message" id="timer-message">留一点时间，把知识变成自己的。</p></div>
+          <button class="button button-dark" id="start" type="button" disabled><span id="start-label">开始 10 分钟学习</span><span aria-hidden="true">→</span></button>
+          <div class="timer-controls" id="timer-controls" hidden><button class="button button-dark" id="pause" type="button">暂停</button><button class="button button-outline" id="restart" type="button">重新开始</button></div>
+          <p class="save-status" id="save-status"><span aria-hidden="true">◉</span> 进度自动保存在当前浏览器</p>
+
+          <div class="prompt-guide"><div class="guide-title"><span id="guide-title">带着这四个问题去学习</span><span aria-hidden="true">↙</span></div><ol><li><span>01</span><div><strong>它是什么？</strong><p>用一句大白话解释，别堆术语。</p></div></li><li><span>02</span><div><strong>它解决什么问题？</strong><p>为什么需要它？什么时候用得上？</p></div></li><li><span>03</span><div><strong>举一个具体例子。</strong><p>放到你的生活、工作或创业里。</p></div></li><li><span>04</span><div><strong>它有什么局限？</strong><p>说清一个常见误解或使用边界。</p></div></li></ol></div>
+          <div class="practice-record"><span class="record-icon" aria-hidden="true">↗</span><div><strong><span id="completed-count">0</span> <span>轮练习计时已完成</span></strong><p id="record-description">一点点积累，就会有自己的表达。</p></div></div>
+        </aside>
+      </div>
+
+      <section class="how-it-works" aria-label="练习方法"><div><span>01 / 抽一个词</span><p>让好奇心决定今天的主题。</p></div><div><span>02 / 理解它</span><p>查资料、找例子，整理自己的理解。</p></div><div><span>03 / 讲出来</span><p>讲给朋友听，也可以讲给自己听。</p></div></section>
+    </main>
+    <footer><span>词间 <span class="footer-dot">·</span> 让每个 AI 概念，落到自己的语言里。</span><div><a href="https://github.com/Evelyn-ux599/ai-term-lab" target="_blank" rel="noopener noreferrer" id="github-link" hidden>GitHub 开源 ↗</a><button class="text-button" id="about" type="button">关于保存与计时</button></div></footer>
+  </div>
+  <dialog id="about-dialog"><div class="dialog-heading"><h2>轻一点，学得久一点。</h2><button id="close-about" class="close-button" aria-label="关闭说明">×</button></div><p>100 个 AI 与创业概念，随机等概率抽取；允许连续抽到同一个词。</p><p>10 分钟整理结束后自动进入 3 分钟汇报。暂停时停止计时；没有暂停时，离开页面或刷新仍按实际经过时间计算。</p><p>进度、声音偏好和完成次数只保存在当前浏览器。不会录音、上传学习记录或调用大模型。清除网站数据、换设备或换网址，不会保留这些记录。</p><p>浏览器在后台或锁屏时可能无法及时发声，返回页面后会校正时间。完成次数表示计时走完，不是学习效果评分。</p><p class="dialog-foot">术语解释是入门摘要。遇到实际决策，请继续查阅相关官方资料。</p></dialog>
+  <div class="sr-only" id="announcement" role="status" aria-live="polite"></div>
+  <noscript><p class="noscript">请启用 JavaScript，以使用抽词、声音和计时功能。本站无需账号或模型 API。</p></noscript>
+</body>
+</html>
